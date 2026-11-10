@@ -5,9 +5,11 @@ import type { SQLiteDatabase } from 'expo-sqlite';
 import { createDatabaseClient } from './client';
 import { migrations, migrationChecksums } from './migrations/migrations';
 import { schemaMigrations } from './schema/migrations.schema';
+import { createFeatureLogger, normalizeError } from '@/core/logging';
 
 export const DATABASE_NAME = 'personal-manager.db';
 const DATABASE_VERSION = migrations.journal.entries.length;
+const log = createFeatureLogger('database');
 
 interface StoredMigration {
   version: number;
@@ -112,7 +114,7 @@ async function seedLegacyTasksMigration(
   });
 }
 
-export async function initializeDatabase(connection: SQLiteDatabase): Promise<void> {
+async function initializeDatabaseSchema(connection: SQLiteDatabase): Promise<void> {
   await connection.execAsync('PRAGMA journal_mode = WAL;');
   await connection.execAsync('PRAGMA foreign_keys = ON;');
 
@@ -169,4 +171,13 @@ export async function initializeDatabase(connection: SQLiteDatabase): Promise<vo
   await connection.withTransactionAsync(async () => {
     await connection.execAsync(`PRAGMA user_version = ${DATABASE_VERSION};`);
   });
+}
+
+export async function initializeDatabase(connection: SQLiteDatabase): Promise<void> {
+  try {
+    await initializeDatabaseSchema(connection);
+  } catch (error) {
+    log.error('Database initialization or migration failed.');
+    throw normalizeError(error);
+  }
 }

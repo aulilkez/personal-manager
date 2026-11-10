@@ -16,6 +16,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { createDatabaseClient } from '@/core/database/client';
 import { Radii, Spacing, Typography } from '@/constants/theme';
+import { createFeatureLogger } from '@/core/logging';
 import { useTheme } from '@/hooks/use-theme';
 import {
   taskInputSchema,
@@ -42,6 +43,7 @@ const EMPTY_FORM: TaskFormState = {
   description: '',
   status: 'todo',
 };
+const log = createFeatureLogger('tasks');
 
 export default function TasksScreen() {
   const theme = useTheme();
@@ -75,6 +77,7 @@ export default function TasksScreen() {
         }
       })
       .catch(() => {
+        log.error('Failed to load tasks.');
         if (active) {
           setError('Unable to load tasks. Please try again.');
           setIsLoading(false);
@@ -129,6 +132,7 @@ export default function TasksScreen() {
       setError(null);
       setTasks(await refreshTasks(''));
     } catch {
+      log.error('Failed to save task.');
       setFormError('Unable to save the task. Please try again.');
     } finally {
       setIsSaving(false);
@@ -141,6 +145,7 @@ export default function TasksScreen() {
       await repository.setStatus(task.id, task.status === 'completed' ? 'todo' : 'completed');
       setTasks(await refreshTasks(search));
     } catch {
+      log.error('Failed to update task status.');
       setError('Unable to update the task. Please try again.');
     }
   };
@@ -154,6 +159,7 @@ export default function TasksScreen() {
       setDeletingTask(null);
       setTasks(await refreshTasks(search));
     } catch {
+      log.error('Failed to delete task.');
       setError('Unable to delete the task. Please try again.');
     }
   };

@@ -90,6 +90,15 @@ modules/
 - UI tidak menulis query SQL langsung.
 - Setiap data impor menyimpan `source`, `importedAt`, dan status review.
 
+## 5.1 Logging and error handling
+
+- The centralized logger and unknown-error normalization utility live in `src/core/logging/`.
+- Import `createFeatureLogger` from `@/core/logging` and use a fixed, lowercase feature namespace (for example, `tasks` or `database`).
+- Supported levels are `debug`, `info`, `warn`, and `error`. Development logs start at `debug`; production logs start at `error`.
+- Log short, static operational messages only. Do not pass objects, full errors, credentials, personal information, transaction details, or payroll data to the logger; non-string messages are omitted.
+- Keep error handling local to the operation and rethrow errors when callers need to handle them. Do not install global interception, persistent logging, or remote telemetry.
+- A future Sentry integration belongs behind a separately reviewed transport boundary with explicit privacy filtering and consent; it is not configured now.
+
 ## 6. Initial domain entities
 
 ### Transaction

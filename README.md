@@ -56,13 +56,14 @@ bun install --frozen-lockfile
 bun run lint
 bun run format:check
 bun run typecheck
+bun run test
 ```
 
 Run `bun run format` to format the project.
 
 Database schema changes are defined in `src/core/database/schema/`. Generate and bundle Drizzle migrations with `bun run db:generate`; the app applies them transactionally during SQLite initialization and tracks schema versions and checksums locally.
 
-GitHub Actions runs lint, formatting, type checks, Expo config and dependency compatibility checks, and an Android export on pull requests targeting `main` and pushes to `main`. CodeQL and dependency review add security checks. Unit tests are not included yet because the project does not currently have a test suite.
+GitHub Actions runs lint, formatting, type checks, Expo config and dependency compatibility checks, and an Android export on pull requests targeting `main` and pushes to `main`. CodeQL and dependency review add security checks. The local Bun test runner is used for focused unit tests.
 
 ## MVP principles
 
