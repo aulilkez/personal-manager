@@ -7,7 +7,7 @@ Aplikasi menggunakan pendekatan local-first. UI dan domain logic berjalan di per
 ## 2. Suggested stack
 
 - Expo + React Native + TypeScript.
-- NativeWind untuk utility styling (versi dipilih saat bootstrap proyek).
+- NativeWind 5 release candidate + Tailwind CSS 4 untuk utility styling.
 - Expo Router untuk navigasi jika sesuai kebutuhan.
 - SQLite melalui library yang kompatibel dengan Expo SDK.
 - SecureStore / Android Keystore-backed storage untuk secret yang memang diperlukan.

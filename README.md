@@ -27,13 +27,15 @@ This documentation establishes the product and design baseline. Implementation w
 ## Tech direction
 
 - Expo + React Native + TypeScript
-- NativeWind / Tailwind-style utility classes for styling
+- NativeWind 5 RC + Tailwind CSS 4 for utility styling
 - SQLite for local storage
 - Kotlin native modules only when Android requirements cannot be met with Expo APIs
 - Android WorkManager for scheduled work that requires native execution
 - Expo Notifications for local notifications, subject to platform limitations
 
 > Final package versions and configuration must match the selected Expo SDK version. Do not copy NativeWind configuration from another version without checking its documentation.
+>
+> Tailwind CSS 4 currently requires NativeWind 5, which is a release candidate. Verify the setup on the target Expo SDK and Android device/emulator before relying on it in production.
 
 ## Documentation
 

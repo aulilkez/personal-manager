@@ -181,11 +181,11 @@ Use accents on icon tiles, mini charts, thin borders, or progress indicators. Do
 Use a single source of semantic tokens and do not scatter literal hex values across components.
 
 Recommendations:
-- Use NativeWind for utility styling.
-- Use `src/theme/tokens.ts` as the typed token source for logic, charts, and dynamic styles.
-- Map semantic utility names to tokens in `tailwind.config.js`.
-- Use `global.css` only for NativeWind setup appropriate to the version in use.
-- Use the same semantic names for dark and light themes.
+- Use NativeWind 5 with Tailwind CSS 4 for utility styling.
+- Define utility tokens with Tailwind v4's `@theme` in `src/global.css`; use the same semantic names for light and dark themes.
+- Use `src/theme/tokens.ts` for typed runtime tokens and `src/theme/themes.ts` for semantic light/dark theme values used by React Native styles.
+- Keep runtime token values aligned with the corresponding CSS theme variables.
+- Import the stylesheet once from the Expo Router root layout and configure the PostCSS and Metro integration as required by NativeWind 5.
 - Avoid classes such as `bg-[#09090B]` in product components.
 
 Example class usage:
@@ -218,7 +218,7 @@ export const darkTokens = {
 } as const;
 ```
 
-**Implementation note:** NativeWind color configuration differs between versions. Ensure the `tailwind.config.js` syntax, CSS variables, `vars()`, and dark mode match the NativeWind version actually installed. Do not mix examples from NativeWind v2/v3/v4/v5.
+**Implementation note:** NativeWind 5 is currently a release candidate and is required for Tailwind CSS 4 in this React Native setup. Keep its configuration aligned with the installed version and verify rendering on the target Android device or emulator.
 
 ## 11. Motion
 

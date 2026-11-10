@@ -1,3 +1,4 @@
+import { forwardRef, type ComponentRef } from 'react';
 import {
   Tabs,
   TabList,
@@ -9,7 +10,7 @@ import {
 import { SymbolView } from 'expo-symbols';
 import { Pressable, useColorScheme, View, StyleSheet } from 'react-native';
 
-import { Colors, MaxContentWidth, Spacing } from '@/constants/theme';
+import { Colors, MaxContentWidth, Radii, Spacing } from '@/constants/theme';
 
 import { ExternalLink } from './external-link';
 import { ThemedText } from './themed-text';
@@ -33,19 +34,23 @@ export default function AppTabs() {
   );
 }
 
-export function TabButton({ children, isFocused, ...props }: TabTriggerSlotProps) {
-  return (
-    <Pressable {...props} style={({ pressed }) => pressed && styles.pressed}>
-      <ThemedView
-        type={isFocused ? 'backgroundSelected' : 'backgroundElement'}
-        style={styles.tabButtonView}>
-        <ThemedText type="small" themeColor={isFocused ? 'text' : 'textSecondary'}>
-          {children}
-        </ThemedText>
-      </ThemedView>
-    </Pressable>
-  );
-}
+type TabButtonProps = Omit<TabTriggerSlotProps, 'ref'>;
+
+export const TabButton = forwardRef<ComponentRef<typeof Pressable>, TabButtonProps>(
+  function TabButton({ children, isFocused, ...props }, ref) {
+    return (
+      <Pressable {...props} ref={ref} style={({ pressed }) => pressed && styles.pressed}>
+        <ThemedView
+          type={isFocused ? 'backgroundSelected' : 'backgroundElement'}
+          style={styles.tabButtonView}>
+          <ThemedText type="small" themeColor={isFocused ? 'text' : 'textSecondary'}>
+            {children}
+          </ThemedText>
+        </ThemedView>
+      </Pressable>
+    );
+  },
+);
 
 export function CustomTabList(props: TabListProps) {
   const scheme = useColorScheme();
@@ -87,7 +92,7 @@ const styles = StyleSheet.create({
   innerContainer: {
     paddingVertical: Spacing.two,
     paddingHorizontal: Spacing.five,
-    borderRadius: Spacing.five,
+    borderRadius: Radii.md,
     flexDirection: 'row',
     alignItems: 'center',
     flexGrow: 1,
@@ -103,7 +108,7 @@ const styles = StyleSheet.create({
   tabButtonView: {
     paddingVertical: Spacing.one,
     paddingHorizontal: Spacing.three,
-    borderRadius: Spacing.three,
+    borderRadius: Radii.sm,
   },
   externalPressable: {
     flexDirection: 'row',
