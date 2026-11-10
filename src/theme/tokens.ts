@@ -16,6 +16,10 @@ export const colorTokens = {
     warning: '#D97706',
     info: '#2563EB',
     accentViolet: '#7C3AED',
+    violetSurface: '#F3E8FF',
+    blueSurface: '#DBEAFE',
+    greenSurface: '#D1FAE5',
+    amberSurface: '#FEF3C7',
   },
   dark: {
     background: '#09090B',
@@ -34,6 +38,10 @@ export const colorTokens = {
     warning: '#FBBF24',
     info: '#60A5FA',
     accentViolet: '#A78BFA',
+    violetSurface: '#21182D',
+    blueSurface: '#162331',
+    greenSurface: '#15271F',
+    amberSurface: '#2A2112',
   },
 } as const;
 

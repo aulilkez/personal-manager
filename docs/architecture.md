@@ -33,6 +33,8 @@ App
 └── Settings
 ```
 
+The current dashboard UI milestone uses Expo Router native tabs from `src/app/(tabs)/`. Its dashboard is split across `src/features/dashboard/` components and reads only static data from `data/dashboard-dummy-data.ts`; non-dashboard tabs are blank placeholders. No task, calendar, finance, or persistence behavior is connected to this UI.
+
 ## 4. Suggested folder structure
 
 ```text

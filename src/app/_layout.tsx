@@ -1,41 +1,35 @@
-import '@/global.css';
+import { DarkTheme, Stack, ThemeProvider } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { SQLiteProvider } from 'expo-sqlite';
-import { useColorScheme } from 'react-native';
-
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
 import { Colors } from '@/constants/theme';
-import { DATABASE_NAME, initializeDatabase } from '@/core/database/connection';
 
-SplashScreen.preventAutoHideAsync();
+const colors = Colors.dark;
+const navigationTheme = {
+  ...DarkTheme,
+  dark: true,
+  colors: {
+    ...DarkTheme.colors,
+    primary: colors.primary,
+    background: colors.background,
+    card: colors.surface,
+    text: colors.foreground,
+    border: colors.border,
+    notification: colors.danger,
+  },
+};
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  const isDark = colorScheme === 'dark';
-  const colors = Colors[isDark ? 'dark' : 'light'];
-  const baseTheme = isDark ? DarkTheme : DefaultTheme;
-  const theme = {
-    ...baseTheme,
-    colors: {
-      ...baseTheme.colors,
-      primary: colors.primary,
-      background: colors.background,
-      card: colors.surface,
-      text: colors.foreground,
-      border: colors.border,
-      notification: colors.danger,
-    },
-  };
-
+export default function RootLayout() {
   return (
-    <ThemeProvider value={theme}>
-      <SQLiteProvider databaseName={DATABASE_NAME} onInit={initializeDatabase}>
-        <AnimatedSplashOverlay />
-        <AppTabs />
-      </SQLiteProvider>
+    <ThemeProvider value={navigationTheme}>
+      <StatusBar style="light" />
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          contentStyle: { backgroundColor: colors.background },
+        }}
+      >
+        <Stack.Screen name="(tabs)" />
+      </Stack>
     </ThemeProvider>
   );
 }
