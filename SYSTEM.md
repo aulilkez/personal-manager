@@ -42,3 +42,11 @@
 - Add tests for calculations, date boundaries, recurrence, and import normalization.
 - Update docs when behavior, architecture, or commands change.
 - Avoid unrelated refactors.
+
+## CI and dependency security
+
+- Use the repository's Bun lockfile and frozen installs in CI.
+- Grant GitHub Actions only the permissions each workflow needs.
+- Pin third-party actions to immutable commit SHAs.
+- Never expose secrets to untrusted pull request code or commit credentials.
+- Review Expo SDK and React Native compatibility before merging dependency updates.

@@ -1,5 +1,7 @@
 # Personal Manager
 
+[![CI](https://github.com/aulilkez/personal-manager/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/aulilkez/personal-manager/actions/workflows/ci.yml)
+
 Personal Manager is an Android personal operating system for managing tasks, calendars, finances, notes, goals, and routines in one place.
 
 ## Project status
@@ -50,12 +52,15 @@ This documentation establishes the product and design baseline. Implementation w
 Install dependencies with `bun install`. Husky installs a pre-commit hook that formats and lints staged files.
 
 ```sh
+bun install --frozen-lockfile
 bun run lint
 bun run format:check
 bun run typecheck
 ```
 
 Run `bun run format` to format the project.
+
+GitHub Actions runs lint, formatting, type checks, Expo config and dependency compatibility checks, and an Android export on pull requests targeting `main` and pushes to `main`. CodeQL and dependency review add security checks. Unit tests are not included yet because the project does not currently have a test suite.
 
 ## MVP principles
 

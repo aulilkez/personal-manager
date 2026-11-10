@@ -45,6 +45,15 @@ Run the project's available checks, for example:
 
 Use actual package scripts from `package.json`; do not invent commands.
 
+## CI expectations
+
+- CI uses Bun and `bun.lock`; install with `bun install --frozen-lockfile`.
+- Before submitting changes, run `bun run lint`, `bun run format:check`, and `bun run typecheck`.
+- CI validates the public Expo config, Expo dependency compatibility, and Android export.
+- Add unit tests when a test suite is introduced; do not treat an empty test run as coverage.
+- Keep GitHub Actions permissions least-privilege, pin third-party actions to immutable commit SHAs, and never add secrets to workflow files.
+- Review Expo SDK and React Native compatibility before merging dependency updates.
+
 ## Completion response
 
 When finishing a task, report:
