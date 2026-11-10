@@ -2,11 +2,13 @@ import '@/global.css';
 
 import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
+import { SQLiteProvider } from 'expo-sqlite';
 import { useColorScheme } from 'react-native';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
 import AppTabs from '@/components/app-tabs';
 import { Colors } from '@/constants/theme';
+import { DATABASE_NAME, initializeDatabase } from '@/core/database/connection';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -30,8 +32,10 @@ export default function TabLayout() {
 
   return (
     <ThemeProvider value={theme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
+      <SQLiteProvider databaseName={DATABASE_NAME} onInit={initializeDatabase}>
+        <AnimatedSplashOverlay />
+        <AppTabs />
+      </SQLiteProvider>
     </ThemeProvider>
   );
 }

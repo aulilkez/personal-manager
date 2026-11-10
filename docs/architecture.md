@@ -83,6 +83,9 @@ modules/
 
 - SQLite adalah sumber data utama pada MVP.
 - Repository layer memisahkan SQL dari UI.
+- Expo SQLite is initialized at the app boundary. Define tables in `src/core/database/schema/`; use `drizzle.config.ts` and `bun run db:generate` to generate SQL migrations and the Expo migration bundle.
+- Drizzle's Expo migrator applies migrations in a transaction. The app records migration versions/checksums and synchronizes SQLite's `user_version`; preserve existing local data when changing migrations.
+- Validate task input and persisted rows with Zod in the task domain; keep CRUD and search queries in the task repository.
 - Domain services menangani perhitungan saldo, durasi lembur, pengulangan event, dan insight.
 - UI tidak menulis query SQL langsung.
 - Setiap data impor menyimpan `source`, `importedAt`, dan status review.

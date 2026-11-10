@@ -4,3 +4,4 @@ dist/
 web-build/
 bun.lock
 coverage/
+src/core/database/migrations/generated/
