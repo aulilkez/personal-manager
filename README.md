@@ -45,6 +45,18 @@ This documentation establishes the product and design baseline. Implementation w
 - [System Rules](SYSTEM.md)
 - [Agent Instructions](AGENTS.md)
 
+## Development
+
+Install dependencies with `bun install`. Husky installs a pre-commit hook that formats and lints staged files.
+
+```sh
+bun run lint
+bun run format:check
+bun run typecheck
+```
+
+Run `bun run format` to format the project.
+
 ## MVP principles
 
 Start with manual entry and file imports. Do not make HRIS scraping a prerequisite for using the app. HRIS integrations may only be implemented with permission, through interfaces that are permitted to access, and must stop when additional authentication is required or access protections are encountered.

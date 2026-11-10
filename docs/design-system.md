@@ -17,45 +17,45 @@
 
 ### Dark theme
 
-| Token | Hex | Usage |
-|---|---|---|
-| background | `#09090B` | App background |
-| foreground | `#FAFAFA` | Primary text |
-| surface | `#18181B` | Cards and sheets |
-| surface-elevated | `#202024` | Elevated surface |
-| surface-hover | `#27272A` | Pressed/selected surface |
-| border | `#3F3F46` | Borders and dividers |
-| muted | `#27272A` | Muted surface |
-| muted-foreground | `#A1A1AA` | Secondary text |
-| subtle-foreground | `#71717A` | Metadata |
-| primary | `#FAFAFA` | Primary action |
-| primary-foreground | `#09090B` | Text on primary |
-| success | `#34D399` | Income/success |
-| danger | `#F87171` | Expense/error |
-| warning | `#FBBF24` | Warning |
-| info | `#60A5FA` | Information |
-| accent-violet | `#A78BFA` | Goals/AI/focus |
+| Token              | Hex       | Usage                    |
+| ------------------ | --------- | ------------------------ |
+| background         | `#09090B` | App background           |
+| foreground         | `#FAFAFA` | Primary text             |
+| surface            | `#18181B` | Cards and sheets         |
+| surface-elevated   | `#202024` | Elevated surface         |
+| surface-hover      | `#27272A` | Pressed/selected surface |
+| border             | `#3F3F46` | Borders and dividers     |
+| muted              | `#27272A` | Muted surface            |
+| muted-foreground   | `#A1A1AA` | Secondary text           |
+| subtle-foreground  | `#71717A` | Metadata                 |
+| primary            | `#FAFAFA` | Primary action           |
+| primary-foreground | `#09090B` | Text on primary          |
+| success            | `#34D399` | Income/success           |
+| danger             | `#F87171` | Expense/error            |
+| warning            | `#FBBF24` | Warning                  |
+| info               | `#60A5FA` | Information              |
+| accent-violet      | `#A78BFA` | Goals/AI/focus           |
 
 ### Light theme
 
-| Token | Hex | Usage |
-|---|---|---|
-| background | `#FAFAFA` | App background |
-| foreground | `#18181B` | Primary text |
-| surface | `#FFFFFF` | Cards |
-| surface-elevated | `#FFFFFF` | Elevated surface |
-| surface-hover | `#F4F4F5` | Pressed/selected |
-| border | `#E4E4E7` | Borders |
-| muted | `#F4F4F5` | Muted surface |
-| muted-foreground | `#71717A` | Secondary text |
-| subtle-foreground | `#A1A1AA` | Metadata |
-| primary | `#18181B` | Primary action |
-| primary-foreground | `#FAFAFA` | Text on primary |
-| success | `#059669` | Income/success |
-| danger | `#DC2626` | Expense/error |
-| warning | `#D97706` | Warning |
-| info | `#2563EB` | Information |
-| accent-violet | `#7C3AED` | Goals/AI/focus |
+| Token              | Hex       | Usage            |
+| ------------------ | --------- | ---------------- |
+| background         | `#FAFAFA` | App background   |
+| foreground         | `#18181B` | Primary text     |
+| surface            | `#FFFFFF` | Cards            |
+| surface-elevated   | `#FFFFFF` | Elevated surface |
+| surface-hover      | `#F4F4F5` | Pressed/selected |
+| border             | `#E4E4E7` | Borders          |
+| muted              | `#F4F4F5` | Muted surface    |
+| muted-foreground   | `#71717A` | Secondary text   |
+| subtle-foreground  | `#A1A1AA` | Metadata         |
+| primary            | `#18181B` | Primary action   |
+| primary-foreground | `#FAFAFA` | Text on primary  |
+| success            | `#059669` | Income/success   |
+| danger             | `#DC2626` | Expense/error    |
+| warning            | `#D97706` | Warning          |
+| info               | `#2563EB` | Information      |
+| accent-violet      | `#7C3AED` | Goals/AI/focus   |
 
 ## 3. Domain semantic colors
 
@@ -74,14 +74,14 @@ Do not rely on color alone; pair status colors with labels or icons.
 
 Use defined, not overly rounded corners.
 
-| Token | Value | Usage |
-|---|---:|---|
-| radius-xs | 4 | Small chips |
-| radius-sm | 6 | Inputs, compact controls |
-| radius-md | 8 | Cards, buttons |
-| radius-lg | 10 | Dialogs and large cards |
-| radius-xl | 12 | Bottom sheets |
-| radius-full | 9999 | Pills only |
+| Token       | Value | Usage                    |
+| ----------- | ----: | ------------------------ |
+| radius-xs   |     4 | Small chips              |
+| radius-sm   |     6 | Inputs, compact controls |
+| radius-md   |     8 | Cards, buttons           |
+| radius-lg   |    10 | Dialogs and large cards  |
+| radius-xl   |    12 | Bottom sheets            |
+| radius-full |  9999 | Pills only               |
 
 Default card radius: **8px**. Avoid 20–28px radii on standard cards.
 
@@ -90,15 +90,15 @@ Default card radius: **8px**. Avoid 20–28px radii on standard cards.
 Use a scale in multiples of 4:
 
 | Token | Value |
-|---|---:|
-| 1 | 4 |
-| 2 | 8 |
-| 3 | 12 |
-| 4 | 16 |
-| 5 | 20 |
-| 6 | 24 |
-| 8 | 32 |
-| 10 | 40 |
+| ----- | ----: |
+| 1     |     4 |
+| 2     |     8 |
+| 3     |    12 |
+| 4     |    16 |
+| 5     |    20 |
+| 6     |    24 |
+| 8     |    32 |
+| 10    |    40 |
 
 Page horizontal padding: 16–20px. Spacing between sections: 24px. Spacing between related elements: 8–12px.
 
@@ -106,16 +106,16 @@ Page horizontal padding: 16–20px. Spacing between sections: 24px. Spacing betw
 
 Preferred font: Android system sans-serif or Inter, if the font is available and properly licensed.
 
-| Style | Size | Weight |
-|---|---:|---|
-| display | 30 | 700 |
-| heading-1 | 24 | 700 |
-| heading-2 | 20 | 600 |
-| heading-3 | 16 | 600 |
-| body | 14 | 400 |
-| body-medium | 14 | 500 |
-| label | 12 | 500 |
-| caption | 11 | 400 |
+| Style       | Size | Weight |
+| ----------- | ---: | ------ |
+| display     |   30 | 700    |
+| heading-1   |   24 | 700    |
+| heading-2   |   20 | 600    |
+| heading-3   |   16 | 600    |
+| body        |   14 | 400    |
+| body-medium |   14 | 500    |
+| label       |   12 | 500    |
+| caption     |   11 | 400    |
 
 Use tabular numbers for balances, amounts, times, and statistics.
 
@@ -129,6 +129,7 @@ Use tabular numbers for balances, amounts, times, and statistics.
 ## 8. Component guidelines
 
 ### Buttons
+
 - Primary: solid primary.
 - Secondary: surface + border.
 - Ghost: transparent.
@@ -137,6 +138,7 @@ Use tabular numbers for balances, amounts, times, and statistics.
 - Disabled state must be clear.
 
 ### Cards
+
 - Surface background.
 - Thin border.
 - Padding: 12–16px.
@@ -144,6 +146,7 @@ Use tabular numbers for balances, amounts, times, and statistics.
 - Statistic cards may use different accents, but should remain within the zinc color family.
 
 ### Inputs
+
 - Surface background.
 - Zinc border.
 - Labels must always be visible.
@@ -151,16 +154,19 @@ Use tabular numbers for balances, amounts, times, and statistics.
 - Minimum height: 44px.
 
 ### Lists
+
 - Row height adapts to content; touch targets should be at least about 44px.
 - Separate rows with subtle dividers.
 - Do not wrap every row in a separate card when a single list is sufficient.
 
 ### Bottom navigation
+
 - Maximum of 5 primary items.
 - Short labels.
 - Use a surface or indicator for the selected state, rather than a bright color on every icon.
 
 ### Charts
+
 - Use subdued axes and gridlines.
 - Make numeric labels easy to read.
 - Keep category colors consistent.
@@ -169,6 +175,7 @@ Use tabular numbers for balances, amounts, times, and statistics.
 ## 9. Dashboard card identity
 
 The four summary cards may have distinct accents:
+
 - Tasks: violet.
 - Agenda: blue.
 - Finance balance: green.
@@ -181,6 +188,7 @@ Use accents on icon tiles, mini charts, thin borders, or progress indicators. Do
 Use a single source of semantic tokens and do not scatter literal hex values across components.
 
 Recommendations:
+
 - Use NativeWind 5 with Tailwind CSS 4 for utility styling.
 - Define utility tokens with Tailwind v4's `@theme` in `src/global.css`; use the same semantic names for light and dark themes.
 - Use `src/theme/tokens.ts` for typed runtime tokens and `src/theme/themes.ts` for semantic light/dark theme values used by React Native styles.
@@ -189,9 +197,10 @@ Recommendations:
 - Avoid classes such as `bg-[#09090B]` in product components.
 
 Example class usage:
+
 ```tsx
-<View className="flex-1 bg-background px-4">
-  <View className="rounded-md border border-border bg-surface p-4">
+<View className="bg-background flex-1 px-4">
+  <View className="border-border bg-surface rounded-md border p-4">
     <Text className="text-foreground">Finance summary</Text>
     <Text className="text-muted-foreground">This month</Text>
   </View>
@@ -199,22 +208,23 @@ Example class usage:
 ```
 
 Example TypeScript tokens:
+
 ```ts
 export const darkTokens = {
-  background: "#09090B",
-  foreground: "#FAFAFA",
-  surface: "#18181B",
-  surfaceElevated: "#202024",
-  border: "#3F3F46",
-  mutedForeground: "#A1A1AA",
-  subtleForeground: "#71717A",
-  primary: "#FAFAFA",
-  primaryForeground: "#09090B",
-  success: "#34D399",
-  danger: "#F87171",
-  warning: "#FBBF24",
-  info: "#60A5FA",
-  accentViolet: "#A78BFA",
+  background: '#09090B',
+  foreground: '#FAFAFA',
+  surface: '#18181B',
+  surfaceElevated: '#202024',
+  border: '#3F3F46',
+  mutedForeground: '#A1A1AA',
+  subtleForeground: '#71717A',
+  primary: '#FAFAFA',
+  primaryForeground: '#09090B',
+  success: '#34D399',
+  danger: '#F87171',
+  warning: '#FBBF24',
+  info: '#60A5FA',
+  accentViolet: '#A78BFA',
 } as const;
 ```
 

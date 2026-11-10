@@ -88,6 +88,7 @@ Individuals who want to manage their activities, work schedules, personal financ
 ### 5.7 Payroll import
 
 Initial stage:
+
 - Select a PDF or payslip image.
 - Extract text or run OCR on-device when possible.
 - Show a preview of the extracted fields.
@@ -95,6 +96,7 @@ Initial stage:
 - Save source metadata and import time.
 
 Later stage:
+
 - Add HRIS-specific adapters only after access methods and permissions have been verified.
 - Do not assume every HRIS application can be scraped.
 - Do not bypass OTP, CAPTCHA, biometrics, app protections, or access controls.
@@ -111,23 +113,27 @@ Later stage:
 ## 7. User stories and acceptance criteria
 
 ### Calendar
+
 - As a user, I can create an event with a date and time.
 - A saved event appears on the correct date.
 - Recurring events produce occurrences according to their rules and can be edited for one occurrence or the entire series.
 - Overtime events are visually distinguishable and their duration is calculated.
 
 ### Finance
+
 - As a user, I can record income and expenses.
 - A period balance is calculated from the opening balance and transactions.
 - Editing or deleting a transaction updates summaries consistently.
 - An imported payroll transaction is not created until the user confirms it.
 
 ### AI Finance Agent
+
 - Insights show the period and data that support the recommendation.
 - If there is not enough data, the app states its limitations.
 - No data is changed without an explicit user action.
 
 ### Payroll
+
 - An unreadable file produces a clear error message.
 - Extracted fields are shown before they are saved.
 - The user can change the amount and date.

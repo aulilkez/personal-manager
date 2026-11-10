@@ -30,7 +30,7 @@ function getDevMenuHint() {
 
 export default function HomeScreen() {
   return (
-    <View className="flex-1 bg-background" style={styles.container}>
+    <View className="bg-background flex-1" style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.heroSection}>
           <AnimatedIcon />

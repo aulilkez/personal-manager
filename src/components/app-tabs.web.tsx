@@ -42,7 +42,8 @@ export const TabButton = forwardRef<ComponentRef<typeof Pressable>, TabButtonPro
       <Pressable {...props} ref={ref} style={({ pressed }) => pressed && styles.pressed}>
         <ThemedView
           type={isFocused ? 'backgroundSelected' : 'backgroundElement'}
-          style={styles.tabButtonView}>
+          style={styles.tabButtonView}
+        >
           <ThemedText type="small" themeColor={isFocused ? 'text' : 'textSecondary'}>
             {children}
           </ThemedText>

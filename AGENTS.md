@@ -1,6 +1,7 @@
 # AGENTS.md — Instructions for Coding Agents
 
 Before changing code:
+
 1. Read `README.md`, `SYSTEM.md`, `docs/PRD.md`, `docs/design-system.md`, and `docs/architecture.md`.
 2. Inspect the existing project structure and package versions.
 3. Do not assume NativeWind or Expo versions; inspect `package.json` and current configuration.
@@ -36,6 +37,7 @@ Before changing code:
 ## Quality checks
 
 Run the project's available checks, for example:
+
 - typecheck
 - lint
 - unit tests
@@ -46,6 +48,7 @@ Use actual package scripts from `package.json`; do not invent commands.
 ## Completion response
 
 When finishing a task, report:
+
 - What changed.
 - Files created or modified.
 - Commands/checks run and their results.

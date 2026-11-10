@@ -7,7 +7,9 @@ import { useColorScheme as useRNColorScheme } from 'react-native';
 export function useColorScheme() {
   const [hasHydrated, setHasHydrated] = useState(false);
 
+  // Switch from the SSR-safe fallback to the browser color scheme after hydration.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- Required to avoid a theme flash during SSR hydration.
     setHasHydrated(true);
   }, []);
 

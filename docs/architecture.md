@@ -71,6 +71,7 @@ src/
 ```
 
 Native Android code (if needed):
+
 ```text
 modules/
   android-automation/
@@ -89,6 +90,7 @@ modules/
 ## 6. Initial domain entities
 
 ### Transaction
+
 - id
 - type: income | expense
 - amount (integer in smallest currency unit, e.g. IDR rupiah)
@@ -101,6 +103,7 @@ modules/
 - createdAt, updatedAt
 
 ### CalendarEvent
+
 - id, title, description
 - startAt, endAt
 - category
@@ -111,6 +114,7 @@ modules/
 - createdAt, updatedAt
 
 ### PayrollImport
+
 - id, sourceType: pdf | image | adapter
 - periodStart, periodEnd
 - grossAmount, netAmount
@@ -139,6 +143,7 @@ Duplicate prevention should use a stable fingerprint from period, employer/sourc
 There is no universal scraper for arbitrary HRIS applications.
 
 Use adapter contracts:
+
 ```ts
 export interface PayrollSourceAdapter {
   id: string;
@@ -149,6 +154,7 @@ export interface PayrollSourceAdapter {
 ```
 
 Adapters should be implemented only for supported and authorized sources. Prefer, in order:
+
 1. Official API/export.
 2. User-selected PDF or image import.
 3. Supported share/export intent.
