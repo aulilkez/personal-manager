@@ -1,56 +1,48 @@
-# Welcome to your Expo app 👋
+# Personal Manager
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Personal Manager is an Android personal operating system for managing tasks, calendars, finances, notes, goals, and routines in one place.
 
-## Get started
+## Project status
 
-1. Install dependencies
+This documentation establishes the product and design baseline. Implementation will proceed in stages, prioritizing a stable core experience, local storage, and personal data security.
 
-   ```bash
-   npm install
-   ```
+## Product principles
 
-2. Start the app
+- **Local-first:** primary data is stored on the user's device.
+- **Private by default:** financial and payroll data is not sent to external services without explicit consent.
+- **Simple, not over-engineered:** build for MVP needs first.
+- **User confirmation:** payroll imports, budget changes, and AI actions must be reviewable and approved by the user.
+- **Accessible:** text size, contrast, touch targets, and navigation should be comfortable on Android.
 
-   ```bash
-   npx expo start
-   ```
+## Core features
 
-In the output, you'll find options to open the app in a
+1. Dashboard: activity, agenda, finance, and goal summaries.
+2. Calendar: month/week/day views, events, work schedules, and overtime.
+3. Tasks: tasks, priorities, due dates, statuses, and recurrence.
+4. Finance: income, expenses, categories, budgets, transactions, and reports.
+5. AI Finance Agent: insights and recommendations based on local data, subject to user approval.
+6. Notes and Goals: notes, goals, and progress.
+7. Payroll import: import PDF payslips or images; automatic HRIS integration is experimental.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Tech direction
 
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Expo + React Native + TypeScript
+- NativeWind / Tailwind-style utility classes for styling
+- SQLite for local storage
+- Kotlin native modules only when Android requirements cannot be met with Expo APIs
+- Android WorkManager for scheduled work that requires native execution
+- Expo Notifications for local notifications, subject to platform limitations
 
-## Get a fresh project
+> Final package versions and configuration must match the selected Expo SDK version. Do not copy NativeWind configuration from another version without checking its documentation.
 
-When you're ready, run:
+## Documentation
 
-```bash
-npm run reset-project
-```
+- [PRD](docs/PRD.md)
+- [Design System](docs/design-system.md)
+- [Architecture](docs/architecture.md)
+- [System Rules](SYSTEM.md)
+- [Agent Instructions](AGENTS.md)
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
+## MVP principles
 
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Start with manual entry and file imports. Do not make HRIS scraping a prerequisite for using the app. HRIS integrations may only be implemented with permission, through interfaces that are permitted to access, and must stop when additional authentication is required or access protections are encountered.

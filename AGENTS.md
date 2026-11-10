@@ -1,41 +1,53 @@
-This is an Expo/React Native mobile application. Prioritize mobile-first patterns, performance, and cross-platform compatibility.
+# AGENTS.md — Instructions for Coding Agents
 
-## Expo has changed — do not trust your training data
+Before changing code:
+1. Read `README.md`, `SYSTEM.md`, `docs/PRD.md`, `docs/design-system.md`, and `docs/architecture.md`.
+2. Inspect the existing project structure and package versions.
+3. Do not assume NativeWind or Expo versions; inspect `package.json` and current configuration.
+4. Identify the smallest implementation slice and state assumptions.
 
-Expo ships breaking changes every SDK release. APIs you remember are likely renamed, moved, or removed. Before writing any code that touches an Expo, EAS, or React Native API:
+## Implementation expectations
 
-1. Read the major version of the `expo` package in `package.json`.
-2. Fetch the matching versioned docs: `https://docs.expo.dev/versions/v<major>.0.0/`
-3. For anything else, fetch https://docs.expo.dev/llms.txt — an index of all Expo docs with corrections to common LLM misconceptions. Follow its links to the specific page you need; never answer from memory.
+- Follow the PRD and design system.
+- Reuse existing UI components and design tokens.
+- Keep UI, domain logic, and persistence separate.
+- Use typed repository/service boundaries.
+- Keep local-first behavior working without network access.
+- Never introduce a backend, state manager, or abstraction layer unless needed by a real requirement.
+- Do not add a new dependency if the current stack already supports the task.
 
-## Commands
+## NativeWind / Tailwind
 
-Use `bunx` instead of `npx` if the project uses bun (`bun.lock` present).
+- Use the installed NativeWind version's documented configuration.
+- Keep semantic color names consistent across light and dark themes.
+- Avoid arbitrary hex utility classes in feature components.
+- Keep dynamic chart colors and non-class styles sourced from theme tokens.
+- Verify styling on an actual Android device or emulator; React Native styling is not identical to browser CSS.
 
-```bash
-npx expo install <package>  # ALWAYS use instead of npm/yarn/pnpm/bun add — resolves SDK-compatible versions
-npx expo start              # start the dev server
-npx expo lint               # lint
-npx tsc --noEmit            # typecheck
-npx expo-doctor             # diagnose dependency and config issues
-npx expo install --fix      # fix incompatible package versions
-```
+## Finance and payroll
 
-Run lint and typecheck before declaring any task done.
+- Store IDR amounts as integers.
+- Test balance and category aggregation.
+- Imported payroll must enter a review state before becoming a confirmed transaction.
+- Do not assume every HRIS can be automated.
+- Never bypass OTP, CAPTCHA, access controls, or employer policies.
+- Never include real payroll data in tests, screenshots, fixtures, or logs. Use synthetic fixtures.
 
-## Navigation & Routing
+## Quality checks
 
-- Use **Expo Router** for all navigation. Routes live in `src/app/` — every file there is a screen, `_layout.tsx` files define navigators. Keep non-route code (components, hooks, utils) outside `src/app/`.
-- Import `Link`, `router`, and `useLocalSearchParams` from `expo-router`.
-- Docs: https://docs.expo.dev/router/introduction.md
+Run the project's available checks, for example:
+- typecheck
+- lint
+- unit tests
+- Expo Android build / emulator smoke test
 
-## Building with EAS
+Use actual package scripts from `package.json`; do not invent commands.
 
-Use EAS to build, sign, and submit the app in the cloud (`eas build`, `eas submit`) and to ship over-the-air updates (`eas update`) — no local Xcode or Android Studio required. Run EAS CLI as `bunx eas-cli <command>` in Bun projects, or `npx eas-cli@latest <command>` otherwise; substitute that for bare `eas` in docs examples.
-Docs: https://docs.expo.dev/eas/index.md
+## Completion response
 
-## Rules
-
-- If `ios/` and `android/` directories do not exist, they are generated (Continuous Native Generation). Never create or edit them by hand — configure native behavior in `app.json` and config plugins.
-- Expo Go only includes its bundled native modules. After adding a library with native code, the app needs a development build: `npx expo run:ios|android` locally, or `eas build --profile development`.
-- Prefer recommended Expo modules over third-party libraries, and check your available skills before adding dependencies. Docs: https://docs.expo.dev/versions/latest/index.md
+When finishing a task, report:
+- What changed.
+- Files created or modified.
+- Commands/checks run and their results.
+- Known limitations and follow-up work.
+- Documentation updated.
