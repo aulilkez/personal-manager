@@ -34,7 +34,8 @@
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo run:android",
+    "android": "expo run:android", 
+    "dev:android": "bash scripts/dev-android.sh",
     "ios": "expo run:ios",
     "web": "expo start --web",
     "lint": "expo lint"
